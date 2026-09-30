@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotel Montis · Website & Local-SEO Erstanalyse</title>
+<meta name="description" content="Website-, OnPage-, Pagespeed-, Core-Web-Vitals- und Local-SEO-Erstanalyse für Hotel Montis.">
+<style>
+:root{
+  --ink:#121212;
+  --paper:#f3f1eb;
+  --paper2:#faf9f6;
+  --white:#fff;
+  --muted:#72716d;
+  --line:#d9d7d0;
+  --lime:#d8ff3e;
+  --lime-soft:#efffb0;
+  --orange:#ff825a;
+  --red:#d94343;
+  --amber:#d78b00;
+  --green:#2c7d59;
+  --blue:#315fd6;
+  --shadow:0 12px 35px rgba(18,18,18,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+a{color:inherit}
+.sidebar{position:fixed;inset:0 auto 0 0;width:245px;background:#111;color:#fff;padding:28px 24px;display:flex;flex-direction:column;z-index:20}
+.brand{font-size:31px;font-weight:850;letter-spacing:-1.7px;line-height:1}.brand span{display:inline-block;width:9px;height:9px;background:var(--lime);border-radius:50%;margin-left:3px}.side-label{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#8d8d8d;margin:48px 0 12px}
+.nav a{display:flex;gap:12px;align-items:center;padding:10px 0;text-decoration:none;color:#a8a8a8;font-size:14px;border-bottom:1px solid #252525;transition:.2s}.nav a:hover,.nav a.active{color:#fff}.nav b{font-size:11px;min-width:24px;color:#5e5e5e}.nav a.active b{color:var(--lime)}
+.side-contact{margin-top:auto;font-size:12px;color:#a4a4a4}.side-contact strong{color:#fff;display:block;margin-bottom:6px}.side-contact a{text-decoration:none}.side-chip{display:inline-block;margin-top:12px;padding:6px 9px;border:1px solid #343434;border-radius:20px;color:#ddd;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+.main{margin-left:245px}.hero{min-height:94vh;padding:80px max(7vw,65px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:var(--paper2)}
+.hero:after{content:"";position:absolute;width:440px;height:440px;border:90px solid var(--lime);border-radius:50%;right:-180px;top:-120px;opacity:.9}.hero-kicker{font-size:16px;font-weight:700;margin-bottom:18px}.hero h1{font-size:clamp(62px,8vw,124px);line-height:.82;letter-spacing:-.065em;margin:0 0 34px;max-width:900px}.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px #111}.hero-sub{font-size:28px;line-height:1.15;max-width:780px;margin:0 0 30px;letter-spacing:-.03em}.hero-desc{max-width:760px;font-size:17px;color:#555;margin-bottom:42px}.meta-grid{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);max-width:900px}.meta{background:#fff;padding:18px}.meta small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#8b8a85;margin-bottom:7px}.meta strong{font-size:15px}.meta .market{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#111;color:#fff;font-size:11px;margin-right:4px}
+.audit-note{margin-top:18px;padding:12px 14px;background:#111;color:#ccc;max-width:900px;font-size:12px}.audit-note b{color:var(--lime)}
+.section{padding:100px max(7vw,65px);border-top:1px solid var(--line);background:var(--paper)}.section:nth-of-type(even){background:var(--paper2)}
+.section-head{display:grid;grid-template-columns:95px 1fr;gap:34px;align-items:start;margin-bottom:60px}.sec-num{font-size:13px;font-weight:800;letter-spacing:.13em;color:#888;padding-top:13px}.section h2{font-size:clamp(42px,5vw,76px);letter-spacing:-.055em;line-height:.92;margin:0;max-width:880px}.lead{font-size:19px;max-width:880px;margin:0 0 36px;color:#484742}.small{font-size:13px;color:#777}
+.data-banner{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:#111;color:#fff;padding:22px 24px;margin:30px 0 36px}.data-banner .icon{width:40px;height:40px;border-radius:50%;background:var(--lime);color:#111;display:flex;align-items:center;justify-content:center;font-weight:900}.data-banner strong{display:block;font-size:15px;margin-bottom:4px}.data-banner p{margin:0;color:#c8c8c8;font-size:13px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0 50px}.metric{background:#fff;border:1px solid var(--line);padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}.metric .value{font-size:45px;font-weight:850;letter-spacing:-.06em;line-height:1}.metric .value.na{font-size:24px;letter-spacing:-.03em}.metric .label{font-size:12px;font-weight:700}.metric .hint{font-size:11px;color:#888;margin-top:6px}.metric.good{border-top:5px solid var(--green)}.metric.warn{border-top:5px solid var(--amber)}.metric.bad{border-top:5px solid var(--red)}.metric.info{border-top:5px solid var(--blue)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0 44px}.panel{background:#fff;border:1px solid var(--line);padding:28px}.panel h3{font-size:25px;letter-spacing:-.035em;margin:0 0 15px}.panel h4{margin:22px 0 8px;font-size:14px}.panel p{color:#5c5a55}.tag{display:inline-block;padding:5px 8px;border-radius:3px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;margin-right:5px}.tag.official{background:#daf0e4;color:#1c6242}.tag.observe{background:#fff2cb;color:#7d5600}.tag.hypo{background:#e8ecff;color:#3949a5}.tag.open{background:#eee;color:#666}
+.table-wrap{overflow:auto;border:1px solid var(--line);background:#fff;margin:24px 0 40px}.table-wrap table{border-collapse:collapse;width:100%;min-width:740px}.table-wrap th{text-align:left;padding:14px 16px;background:#111;color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.table-wrap td{padding:15px 16px;border-bottom:1px solid #e7e5df;vertical-align:top;font-size:13px}.table-wrap tr:last-child td{border-bottom:none}.table-wrap td strong{display:block;margin-bottom:3px}.pill{display:inline-block;padding:4px 7px;border-radius:11px;font-size:10px;font-weight:800;white-space:nowrap}.pill.high{background:#ffe0dc;color:#a82b27}.pill.mid{background:#fff0cf;color:#8a5d00}.pill.low{background:#dff0e6;color:#236042}.pill.open{background:#eee;color:#666}.pill.good{background:#dbf0e4;color:#1d6242}
+.intent-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0 42px}.intent{background:#fff;border:1px solid var(--line);padding:20px}.intent strong{display:block;margin-bottom:10px}.intent ul{padding-left:18px;margin:0}.intent li{margin:5px 0;color:#555;font-size:13px}
+.takeaway{background:var(--lime);padding:30px;margin:46px 0 0}.takeaway h3{font-size:26px;margin:0 0 15px;letter-spacing:-.04em}.takeaway ul{margin:0;padding-left:20px}.takeaway li{margin:8px 0}
+.issue-group{margin:22px 0}.issue{border:1px solid var(--line);background:#fff;margin-bottom:9px}.issue button{appearance:none;border:0;background:transparent;width:100%;padding:18px 20px;display:flex;align-items:center;gap:13px;text-align:left;font:inherit;cursor:pointer}.issue button strong{flex:1}.issue button .count{font-size:11px;color:#777}.issue button .plus{font-size:22px;line-height:1;transition:.2s}.issue.open button .plus{transform:rotate(45deg)}.issue-body{display:none;padding:0 20px 22px;border-top:1px solid #eee}.issue.open .issue-body{display:block}.issue-body p{color:#555;max-width:900px}.issue-body code{font-size:11px;word-break:break-all;background:#f2f1ed;padding:2px 4px}.solution{border-left:4px solid var(--lime);padding:10px 14px;background:#f8ffd8;margin-top:14px}.urls{font-size:12px;color:#555;display:grid;gap:5px;margin:12px 0}.urls a{word-break:break-all}
+.status-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0}.status-card{border:1px solid var(--line);background:#fff;padding:22px}.status-card .round{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;background:#eee;margin-bottom:15px}.status-card h3{font-size:20px;margin:0 0 6px}.status-card p{font-size:12px;color:#666;margin:0}
+.cwv{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0 36px}.vital{background:#111;color:#fff;padding:26px}.vital .name{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#999}.vital .target{font-size:36px;font-weight:850;letter-spacing:-.05em;margin:10px 0 4px}.vital .current{font-size:12px;color:var(--lime)}
+.driver-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:25px 0}.driver{background:#fff;border:1px solid var(--line);padding:22px}.driver b{display:block;margin-bottom:7px}.driver p{font-size:13px;color:#666;margin:0}
+.local-score{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;margin:32px 0}.local-card{background:#fff;border:1px solid var(--line);padding:28px}.local-card .big{font-size:64px;font-weight:900;letter-spacing:-.07em}.bar{height:10px;background:#e9e7e1;margin:10px 0 18px;overflow:hidden}.bar span{display:block;height:100%;background:var(--amber);width:25%}
+.roadmap{position:relative;margin:40px 0 0}.step{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:24px 0;border-top:1px solid var(--line)}.step time{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}.step h3{margin:0 0 8px;font-size:23px}.step p{margin:0;color:#62605b;font-size:14px}.step .taskline{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}.task{background:#fff;border:1px solid var(--line);padding:6px 9px;font-size:11px}
+.sources{margin-top:65px;border-top:1px solid var(--line);padding-top:25px}.sources h3{font-size:18px}.sources ol{padding-left:22px}.sources li{font-size:11px;color:#777;margin:7px 0;word-break:break-all}.sources a{color:#555}
+.footer{background:#111;color:#fff;padding:70px max(7vw,65px);display:grid;grid-template-columns:1fr 1fr;gap:50px}.footer h2{font-size:52px;letter-spacing:-.05em;margin:0}.footer p{color:#aaa}.footer a{color:#fff}.disclaimer{font-size:11px;color:#777;margin-top:22px;max-width:760px}.mobile-top{display:none}
+@media(max-width:980px){.sidebar{display:none}.mobile-top{display:flex;position:sticky;top:0;z-index:50;background:#111;color:#fff;padding:14px 18px;justify-content:space-between;align-items:center}.mobile-top .brand{font-size:22px}.mobile-top a{text-decoration:none;font-size:12px;color:var(--lime)}.main{margin-left:0}.hero,.section,.footer{padding-left:28px;padding-right:28px}.meta-grid,.metrics{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:50px 1fr}.two-col,.intent-grid,.local-score{grid-template-columns:1fr}.cwv,.status-strip{grid-template-columns:1fr}.driver-grid{grid-template-columns:1fr}.step{grid-template-columns:1fr}.footer{grid-template-columns:1fr}.hero:after{width:260px;height:260px;border-width:55px;right:-120px}}
+@media(max-width:620px){.hero{min-height:auto;padding-top:80px;padding-bottom:70px}.hero h1{font-size:58px}.hero-sub{font-size:22px}.meta-grid,.metrics{grid-template-columns:1fr}.section{padding-top:70px;padding-bottom:70px}.section-head{display:block}.sec-num{margin-bottom:14px}.section h2{font-size:44px}.footer h2{font-size:40px}}
+@media print{.sidebar,.mobile-top{display:none}.main{margin:0}.hero{min-height:auto}.section,.hero{break-inside:avoid}.issue-body{display:block!important}.hero:after{display:none}}
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="brand">WESEO<span></span></div>
+  <div class="side-label">Inhalt</div>
+  <nav class="nav">
+    <a href="#ueberblick"><b>00</b>Überblick</a>
+    <a href="#sichtbarkeit"><b>01</b>Sichtbarkeit</a>
+    <a href="#onpage"><b>02</b>OnPage</a>
+    <a href="#pagespeed"><b>03</b>Pagespeed</a>
+    <a href="#local"><b>04</b>Local-SEO</a>
+    <a href="#empfehlung"><b>05</b>Empfehlung</a>
+  </nav>
+  <div class="side-contact">
+    <strong>WESEO</strong>
+    0800 400 877<br>
+    <a href="mailto:office@weseo.at">office@weseo.at</a><br>
+    <span class="side-chip">Marketingcheck 2026</span>
+  </div>
+</div>
+<div class="mobile-top"><div class="brand">WESEO<span></span></div><a href="#empfehlung">Empfehlung ↓</a></div>
+<main class="main">
+<section class="hero" id="ueberblick">
+  <div class="hero-kicker">Website &amp; Local-SEO</div>
+  <h1>Erst<em>analyse</em></h1>
+  <p class="hero-sub">Hotel Montis</p>
+  <p class="hero-desc">Analyse der organischen Sichtbarkeit, technischen OnPage-Health, Pagespeed-/Core-Web-Vitals-Performance und lokalen Datenkonsistenz des <strong>Hotel Montis</strong>.</p>
+  <div class="meta-grid">
+    <div class="meta"><small>Prüfstand</small><strong>30. September 2026</strong></div>
+    <div class="meta"><small>Website</small><strong>Hotel Montis</strong></div>
+    <div class="meta"><small>Zielmärkte</small><strong><span class="market">DE</span><span class="market">IT</span></strong></div>
+    <div class="meta"><small>Standort</small><strong>Meransen · Südtirol</strong></div>
+  </div>
+  <div class="audit-note"><b>Datenbasis:</b> Ubersuggest, öffentlich zugängliche Website-Daten, öffentlich auffindbare Profile und eine repräsentative technische URL-Stichprobe. Datenstand der SEO- und Performance-Messungen: 30.09.2026.</div>
+</section>
+
+<section class="section" id="sichtbarkeit">
+  <div class="section-head"><div class="sec-num">01</div><h2>Sichtbarkeit in Suchmaschinen</h2></div>
+  <p class="lead">Das Hotel Montis verfügt bereits über eine organische Basis in den relevanten Zielmärkten Deutschland und Italien. Ein wesentlicher Teil der aktuellen Sichtbarkeit entsteht über Marken- und Navigationssuchen sowie über regionale Themen rund um Meransen, Gitschberg Jochtal, Bergbahnen und Freizeitangebote. Das größte zusätzliche Potenzial liegt bei generischen Hotel-, Wellness-, Aktiv- und Genuss-Suchintentionen.</p>
+  <div class="data-banner"><div class="icon">i</div><div><strong>SEO-Datenstand 30.09.2026</strong><p>Die Kennzahlen in diesem Kapitel basieren auf Ubersuggest-Domain-, Keyword- und Backlinkdaten für die analysierte Website. Sie dienen als belastbarer Snapshot für die weitere SEO-Entwicklung des Hotel Montis in Deutschland und Italien.</p></div></div>
+
+  <div class="metrics">
+    <div class="metric good"><div class="value">149</div><div><div class="label">organische Keywords</div><div class="hint">aktueller Ubersuggest-Datenstand</div></div></div>
+    <div class="metric warn"><div class="value">21</div><div><div class="label">Domain Authority</div><div class="hint">Ubersuggest · Skala 0–100</div></div></div>
+    <div class="metric good"><div class="value">291</div><div><div class="label">Backlinks</div><div class="hint">externe Verlinkungen</div></div></div>
+    <div class="metric info"><div class="value">96</div><div><div class="label">verweisende Domains</div><div class="hint">Linkquellen zur Domain</div></div></div>
+  </div>
+
+  <div class="two-col">
+    <div class="panel"><span class="tag official">Ubersuggest</span><h3>Markt DE</h3><p>Im deutschen Markt erzielt die Website sehr gute Positionen bei Marken- und Navigationssuchen und ist zusätzlich für regionale Themen rund um <strong>Meransen, Gitschberg Jochtal, Bergbahnen und den Südtirol Guest Pass</strong> sichtbar. Beispiele aus dem aktuellen Datenstand sind Position 1 bei zentralen Markensuchen sowie Top-10-Rankings bei mehreren regionalen Bergbahn-Suchanfragen.</p><h4>SEO-Potenzial</h4><p>Deutlich ausbaufähig ist die generische Hotel-Sichtbarkeit. Für Hotel Montis sollten insbesondere Suchfelder rund um <strong>4 Sterne Superior, Wellnesshotel, Hotel mit Pool, Zimmer &amp; Suiten, Genuss und Ski-in/Ski-out in Meransen</strong> systematisch aufgebaut werden.</p></div>
+    <div class="panel"><span class="tag official">Ubersuggest</span><h3>Markt IT</h3><p>Auch im italienischen Markt ist bereits relevante organische Sichtbarkeit vorhanden. Die Website erscheint unter anderem für regionale Suchanfragen rund um <strong>Maranza/Meransen, piscina, Bergbahnen und Freizeitangebote</strong>. Im aktuellen Datenstand erreicht sie beispielsweise Top-10-Positionen bei mehreren Maranza- und Pool-Suchanfragen.</p><h4>SEO-Potenzial</h4><p>Für Hotel Montis sollte die italienische Seitenarchitektur eigenständig auf Hotel- und Wellnessintentionen ausgerichtet werden – insbesondere auf <strong>hotel 4 stelle superior Maranza, wellness hotel Maranza, hotel con piscina, camere e suite und hotel gourmet Alto Adige</strong>.</p></div>
+  </div>
+
+  <h3>Relevante Mitbewerber für Hotel Montis</h3>
+  <p class="small">Auswahl anhand von Lage, Kategorie, Zimmer-/Suitenangebot, Wellness, Natur/Aktiv, Kulinarik und Überschneidung in den Zielmärkten Deutschland und Italien.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Mitbewerber</th><th>Ort / Niveau</th><th>Belegte Überschneidung</th><th>SEO-Relevanz</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tratterhof Mountain Sky Hotel</strong>tratterhof.com</td><td>Meransen · 4*S</td><td>Zimmer &amp; Suiten, 4.000 m² Spa, Infinitypools, Natur/Aktiv, Genuss</td><td><span class="pill high">sehr direkt</span> Explizite Landingpages für „4-Sterne-Superior-Hotel Meransen“ und „Wellnesshotel Meransen“.</td></tr>
+      <tr><td><strong>Sonnenberg</strong>sonnenberg.it</td><td>Meransen · 4*S</td><td>Wellbeing, Indoor-/Outdoor-/Sky Pool, Gourmetpension, Aktiv, Ski-in/Ski-out</td><td><span class="pill high">sehr direkt</span> Starke Hotel-, Wellness- und Genuss-Keywordabdeckung.</td></tr>
+      <tr><td><strong>Panoramahotel Huberhof</strong>panoramahotel-huberhof.com</td><td>Meransen · 4*S</td><td>Familiengeführt, 34 Zimmer, 1.500 m² Wellness, 27-m-Infinitypool, Gourmet</td><td><span class="pill high">sehr direkt</span> Ähnliche Größe, Lage, Panorama- und Genusspositionierung.</td></tr>
+      <tr><td><strong>Hotel Milla Montis</strong>hotel-milla-montis.com</td><td>Meransen · 4 Sterne / extern 4*S geführt</td><td>Design, Zimmer &amp; Suiten, Spa, Natur, Kulinarik, neue Angebote 2026</td><td><span class="pill high">direkt</span> Besonders relevant für Design-/Genuss- und Markenwahrnehmung.</td></tr>
+      <tr><td><strong>Hotel Ambet</strong>ambet.it</td><td>Meransen · 4 Sterne / EN als 4*S</td><td>Alpine Lifestyle, 500 m² Dachterrasse, Infinity-Skypool, Hallenbad, Restaurant</td><td><span class="pill mid">direkt</span> Starke Wellness- und Aktivseiten in DE/IT/EN.</td></tr>
+      <tr><td><strong>Hotel Masl</strong>hotel-masl.com</td><td>Vals · 4*S</td><td>Familiengeführt, 2.000 m² Wellness, In-/Outdoorpool, Aktiv, Südtirol + mediterrane Küche</td><td><span class="pill mid">regional</span> Gleiche Ferienregion und sehr ähnliche Leistungscluster.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Suchintentionen, die Hotel Montis abdecken sollte</h3>
+  <div class="intent-grid">
+    <div class="intent"><strong>Deutschland</strong><ul><li>4 Sterne Superior Hotel Meransen</li><li>Wellnesshotel Meransen</li><li>Hotel mit Pool Meransen</li><li>Ski in Ski out Hotel Meransen</li><li>Wanderhotel Gitschberg Jochtal</li><li>Genusshotel Südtirol / Meransen</li><li>Hotel Zimmer Suiten Meransen</li></ul></div>
+    <div class="intent"><strong>Italien</strong><ul><li>hotel 4 stelle superior Maranza</li><li>wellness hotel Maranza</li><li>hotel con piscina Maranza</li><li>hotel sci ai piedi Maranza</li><li>hotel benessere Gitschberg Jochtal</li><li>hotel gourmet Alto Adige</li><li>camere e suite Maranza</li></ul></div>
+  </div>
+
+  <div class="takeaway"><h3>Was wir daraus mitnehmen</h3><ul><li>Hotel Montis verfügt bereits über eine <strong>verwertbare organische Basis</strong> mit Marken-, Regional- und Freizeitbezug.</li><li>Das größte Wachstumspotenzial liegt in der gezielten Erweiterung um <strong>generische Hotel-, Wellness-, Aktiv- und Genuss-Suchintentionen</strong> in DE und IT.</li><li>Die direkte Konkurrenz in Meransen besetzt bereits konkrete Kombinationen aus <strong>4*S + Wellness + Pool + Aktiv + Genuss</strong>; Hotel Montis braucht deshalb eine präzise, klar differenzierte Themenarchitektur.</li></ul></div>
+</section>
+
+<section class="section" id="onpage">
+  <div class="section-head"><div class="sec-num">02</div><h2>Technische OnPage-Health</h2></div>
+  <p class="lead">Die technische Prüfung zeigt eine grundsätzlich funktionierende und mehrsprachige Website, gleichzeitig aber mehrere konkrete Optimierungspunkte bei Templates, Metadaten, Überschriften und saisonaler Content-Pflege. Diese Faktoren beeinflussen, wie eindeutig einzelne Seiten von Suchmaschinen erfasst und voneinander unterschieden werden können.</p>
+
+  <div class="metrics">
+    <div class="metric warn"><div class="value">77</div><div><div class="label">OnPage Health Score</div><div class="hint">Ubersuggest Site Audit · 0–100</div></div></div>
+    <div class="metric good"><div class="value">150</div><div><div class="label">gecrawlte URLs</div><div class="hint">vollständige Audit-Stichprobe</div></div></div>
+    <div class="metric bad"><div class="value">253</div><div><div class="label">SEO-Hinweise gesamt</div><div class="hint">Fehler, Warnungen & Empfehlungen</div></div></div>
+    <div class="metric good"><div class="value">0</div><div><div class="label">gebrochene Seiten</div><div class="hint">keine 4xx-Seiten im Crawl</div></div></div>
+  </div>
+  <p class="small">Quelle: Ubersuggest Site Audit, 150 URLs, Datenstand 30.09.2026.</p>
+
+  <h3>Detail-Befunde nach Bereich</h3>
+  <div class="issue-group">
+    <div class="issue open"><button><span class="pill high">hoch</span><strong>104 Seiten ohne H1</strong><span class="count">104 URLs</span><span class="plus">+</span></button><div class="issue-body"><p>Der Crawl weist auf 104 von 150 geprüften URLs keine H1 aus. Damit fehlt auf einem großen Teil der Website eine klar definierte primäre Seitenüberschrift.</p><div class="solution"><strong>Lösungsansatz:</strong> pro indexierbarer Seite genau eine aussagekräftige H1 definieren und die H1-Regel in allen relevanten Seitentemplates technisch verankern.</div></div></div>
+
+    <div class="issue"><button><span class="pill high">hoch</span><strong>19 Seiten mit doppelten Seitentiteln</strong><span class="count">19 URLs</span><span class="plus">+</span></button><div class="issue-body"><p>Mehrere Seiten teilen denselben Title. Das betrifft unter anderem sprachübergreifend wiederkehrende Themen- und Leistungsseiten. Doppelte Titles erschweren die eindeutige Differenzierung der einzelnen URLs in der organischen Suche.</p><div class="solution"><strong>Lösungsansatz:</strong> für jede indexierbare Seite einen eindeutigen Title aus Seitenthema, relevantem Suchintent und Orts-/Markenbezug definieren.</div></div></div>
+
+    <div class="issue"><button><span class="pill high">hoch</span><strong>10 Seiten mit doppelten Meta Descriptions</strong><span class="count">10 URLs</span><span class="plus">+</span></button><div class="issue-body"><p>Der Audit identifiziert 10 URLs mit duplizierten Meta Descriptions. Dadurch werden unterschiedliche Inhalte in den Suchergebnissen nicht ausreichend individuell beschrieben.</p><div class="solution"><strong>Lösungsansatz:</strong> Meta Descriptions seitenbezogen formulieren und dabei Nutzen, Thema, Ort und einen klaren Handlungsimpuls kombinieren.</div></div></div>
+
+    <div class="issue"><button><span class="pill mid">mittel</span><strong>19 Seiten ohne Meta Description</strong><span class="count">19 URLs</span><span class="plus">+</span></button><div class="issue-body"><p>Für 19 URLs wurde keine Meta Description gefunden. Betroffen sind unter anderem Informations- und Erlebnisinhalte in mehreren Sprachversionen.</p><div class="solution"><strong>Lösungsansatz:</strong> fehlende Beschreibungen priorisiert für Seiten mit organischen Impressionen, Buchungsnähe oder strategischer Themenrelevanz ergänzen.</div></div></div>
+
+    <div class="issue"><button><span class="pill mid">mittel</span><strong>48 Seitentitel außerhalb der empfohlenen Länge</strong><span class="count">27 zu lang · 21 zu kurz</span><span class="plus">+</span></button><div class="issue-body"><p>27 Seitentitel werden als zu lang und 21 als zu kurz bewertet. Dadurch geht entweder relevante Aussagekraft verloren oder Suchergebnisse können gekürzt dargestellt werden.</p><div class="solution"><strong>Lösungsansatz:</strong> Titles nach Suchintention priorisieren und für alle zentralen Hotel-, Wellness-, Aktiv- und Genussseiten ein konsistentes Title-Schema definieren.</div></div></div>
+
+    <div class="issue"><button><span class="pill mid">mittel</span><strong>35 SEO-unfreundliche URLs</strong><span class="count">35 URLs</span><span class="plus">+</span></button><div class="issue-body"><p>Der Crawl bewertet 35 URLs als nicht optimal suchmaschinenfreundlich. Klare, kurze und sprechende URL-Strukturen erleichtern Nutzern und Suchmaschinen die Einordnung einer Seite.</p><div class="solution"><strong>Lösungsansatz:</strong> URL-Struktur nach Themenclustern vereinheitlichen, unnötige Ebenen reduzieren und bestehende Rankings bei jeder Änderung über saubere 301-Weiterleitungen absichern.</div></div></div>
+
+    <div class="issue"><button><span class="pill mid">mittel</span><strong>18 temporäre Weiterleitungen</strong><span class="count">18 URLs · HTTP 307</span><span class="plus">+</span></button><div class="issue-body"><p>18 gecrawlte URLs leiten temporär per HTTP 307 weiter. Für dauerhaft verschobene Inhalte sind permanente Weiterleitungen in der Regel die klarere technische Lösung.</p><div class="solution"><strong>Lösungsansatz:</strong> alle 307-Weiterleitungen nach Zweck prüfen und dauerhaft verschobene Seiten auf passende 301-Ziele umstellen. Weiterleitungsketten vermeiden.</div></div></div>
+
+    <div class="issue"><button><span class="pill high">hoch</span><strong>Veraltete Gästekarten-Bezeichnung auf der Wanderseite</strong><span class="count">Content-Konsistenz</span><span class="plus">+</span></button><div class="issue-body"><p>Die Wanderseite nennt bei den Inklusivleistungen noch die frühere Bezeichnung „Gitschberg Jochtal Almencard“, während die aktuelle Gästekarte als <strong>Brixen Südtirol Guest Pass</strong> geführt wird. Andere aktuelle Seiten verwenden bereits die neue Bezeichnung.</p><div class="solution"><strong>Lösungsansatz:</strong> historische Bezeichnung aus aktuellen Leistungsseiten entfernen und alle Fundstellen systematisch auf die aktuelle Guest-Pass-Bezeichnung vereinheitlichen.</div></div></div>
+
+    <div class="issue"><button><span class="pill good">stärke</span><strong>Technische Erreichbarkeit ist grundsätzlich stabil</strong><span class="count">132 erfolgreich · 0 broken</span><span class="plus">+</span></button><div class="issue-body"><p>132 der 150 geprüften URLs wurden erfolgreich ausgeliefert; gebrochene Seiten oder 4xx-Fehler wurden im Crawl nicht festgestellt. Das ist eine solide technische Grundlage.</p><div class="solution"><strong>Weiterführen:</strong> diese Stabilität bei strukturellen Anpassungen sichern und Redirects, Canonicals sowie interne Links vor Veröffentlichung technisch testen.</div></div></div>
+  </div>
+
+  <div class="takeaway"><h3>Was wir daraus mitnehmen</h3><ul><li>Mit einem <strong>OnPage Health Score von 77/100</strong> ist die technische Basis solide, aber deutlich optimierbar.</li><li>Die größte quantitative Baustelle ist die Überschriftenstruktur: <strong>104 von 150 geprüften URLs ohne H1</strong>. Danach folgen Title-, Meta-Description- und URL-Themen.</li><li>Positiv: Der Crawl zeigt <strong>keine gebrochenen Seiten</strong>. Dadurch kann die Optimierung auf Qualität, Eindeutigkeit und Performance fokussiert werden.</li></ul></div>
+</section>
+
+<section class="section" id="pagespeed">
+  <div class="section-head"><div class="sec-num">03</div><h2>Pagespeed &amp; Core Web Vitals</h2></div>
+  <p class="lead">Der aktuelle PageSpeed-Test zeigt einen deutlichen Unterschied zwischen Desktop und Mobile. Während die Desktop-Darstellung bei den gemessenen Lab-Werten vergleichsweise stabil ausfällt, ist die mobile Ladeperformance klar verbesserungsbedürftig. Besonders auffällig sind der mobile Largest Contentful Paint und die hohe JavaScript-Belastung.</p>
+
+  <div class="status-strip">
+    <div class="status-card"><div class="round bad">33,2</div><h3>Mobile LCP</h3><p>33,2 s im aktuellen Lab-Test. Der wichtigste sichtbare Inhalt lädt damit deutlich zu spät.</p></div>
+    <div class="status-card"><div class="round">11,0</div><h3>Mobile Speed Index</h3><p>11,0 s. Auch der visuelle Seitenaufbau erfolgt auf Mobilgeräten deutlich zu langsam.</p></div>
+    <div class="status-card"><div class="round good">0</div><h3>CLS</h3><p>CLS 0 im gemessenen Mobile- und Desktop-Lab-Test: die Darstellung ist visuell stabil.</p></div>
+  </div>
+
+  <h3>Google-Zielwerte für Core Web Vitals</h3>
+  <div class="cwv">
+    <div class="vital"><div class="name">Largest Contentful Paint · LCP</div><div class="target">Zielwert ≤ 2,5 s</div><div class="current"><strong>Mobile Lab: 33,2 s</strong> · kritisch</div></div>
+    <div class="vital"><div class="name">Interaktivität</div><div class="target">TBT als Lab-Indikator</div><div class="current"><strong>Mobile TBT: 794 ms</strong> · verbesserungsbedürftig</div></div>
+    <div class="vital"><div class="name">Cumulative Layout Shift · CLS</div><div class="target">Zielwert ≤ 0,1</div><div class="current"><strong>Mobile/Desktop Lab: 0</strong> · gut</div></div>
+  </div>
+  <p class="small">Quelle: Ubersuggest PageSpeed Audit, Stand 30.09.2026. Die genannten Werte sind Lab-Messungen. Reale CrUX-/INP-Felddaten sollten ergänzend im laufenden Monitoring beobachtet werden.</p>
+
+  <h3>Beobachtbare Performance-Risikotreiber</h3>
+  <div class="driver-grid">
+    <div class="driver"><b>Ungenutztes JavaScript</b><p>Der mobile Audit weist rund <strong>1.016 KB potenziell reduzierbares JavaScript</strong> und ein geschätztes Einsparpotenzial von <strong>6,8 Sekunden</strong> aus. Skripte sollten priorisiert, verzögert oder entfernt werden.</p></div>
+    <div class="driver"><b>Ungenutzte CSS-Regeln</b><p>Rund <strong>120 KB CSS</strong> werden als reduzierbar ausgewiesen. Eine schlankere CSS-Auslieferung kann den Rendering-Pfad beschleunigen.</p></div>
+    <div class="driver"><b>Weiterleitungen im Ladepfad</b><p>Der Audit weist ein Einsparpotenzial von rund <strong>630 ms</strong> durch Redirect-Optimierungen aus. Direkte Ziel-URLs sollten insbesondere bei zentralen Ressourcen und Einstiegsseiten bevorzugt werden.</p></div>
+    <div class="driver"><b>Above-the-fold-Inhalte</b><p>Der sehr hohe mobile LCP deutet darauf hin, dass das größte sichtbare Element deutlich früher bereitgestellt werden muss. Hero-Medien, Fonts und kritische Ressourcen sollten gezielt priorisiert werden.</p></div>
+  </div>
+
+  <h3>Performance-Messwerte im Überblick</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Seitentyp</th><th>Mobile</th><th>Desktop</th><th>Warum prüfen?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>First Contentful Paint</strong></td><td>11,0 s</td><td>2,3 s</td><td>Der erste sichtbare Inhalt erscheint mobil deutlich zu spät.</td></tr>
+      <tr><td><strong>Speed Index</strong></td><td>11,0 s</td><td>4,1 s</td><td>Der visuelle Aufbau ist mobil der zentrale Schwachpunkt.</td></tr>
+      <tr><td><strong>Total Blocking Time</strong></td><td>794 ms</td><td>nicht ausgewiesen</td><td>Hinweis auf hohe Main-Thread-/JavaScript-Belastung auf Mobilgeräten.</td></tr>
+      <tr><td><strong>Largest Contentful Paint</strong></td><td>33,2 s</td><td>nicht ausgewiesen</td><td>Mobile LCP-Optimierung hat höchste Priorität.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="takeaway"><h3>Was wir daraus mitnehmen</h3><ul><li>Die mobile Performance ist aktuell der deutlichste technische Schwachpunkt: <strong>LCP 33,2 s, Speed Index 11,0 s und TBT 794 ms</strong>.</li><li>Das größte konkrete Einsparpotenzial liegt laut Audit bei <strong>ungenutztem JavaScript (ca. 6,8 s)</strong>, gefolgt von CSS- und Redirect-Optimierungen.</li><li>Die visuelle Stabilität ist mit <strong>CLS 0</strong> positiv. Die Optimierung sollte daher primär auf Ladepriorisierung, JavaScript, kritische Ressourcen und Above-the-fold-Inhalte fokussieren.</li></ul></div>
+</section>
+
+<section class="section" id="local">
+  <div class="section-head"><div class="sec-num">04</div><h2>Local-SEO &amp; Datenkonsistenz</h2></div>
+  <p class="lead">Für die lokale Sichtbarkeit des Hotel Montis ist entscheidend, dass Name, Unterkunftskategorie, Standort, Website, Leistungsdaten und Bildwelt über die eigene Website sowie externe Plattformen konsistent ausgespielt werden. Gerade bei Hotel- und Reisesuchen greifen Google und andere Systeme auf mehrere Datenquellen gleichzeitig zurück.</p>
+
+  <div class="local-score">
+    <div class="local-card"><span class="tag official">Hotel Montis</span><h3>Lokale Kernsignale</h3><p><strong>Hotel Montis</strong><br>Meransen · Südtirol<br>Zielmärkte: Deutschland &amp; Italien</p><p class="small">Für Local SEO sollten Name, Kategorie, Standort, Website und Leistungsprofil in allen relevanten Primär- und Reiseplattformen identisch und aktuell geführt werden.</p></div>
+    <div class="local-card"><span class="tag observe">beobachtbarer zusammenhang</span><div class="big">1</div><strong>auffällige öffentliche Datenquelle</strong><div class="bar"><span></span></div><p class="small">Google Travel zeigt je nach Feed/Eintrag unterschiedliche Basisdaten, u. a. Varianten mit „7 Bädern“ und unterschiedlichen Check-in-Zeiten. Das deutet auf uneinheitliche Aggregations-/Feed-Daten hin.</p></div>
+  </div>
+
+  <h3>Öffentlich geprüfte Profile und Quellen</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Quelle</th><th>Status heute</th><th>Auffälligkeit</th><th>Montis-Maßnahme</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Eigene Website</strong></td><td><span class="pill good">Kernquelle</span></td><td>Name, Kategorie, Standort, Leistungen und Kontaktdaten bilden die Referenz für weitere Plattformen.</td><td>Hotel- und Leistungsdaten strukturiert, eindeutig und konsistent auszeichnen.</td></tr>
+      <tr><td><strong>Booking.com</strong></td><td><span class="pill good">relevant</span></td><td>Hohe Sichtbarkeit in Hotel- und Unterkunftssuchen; Daten werden von weiteren Reisesystemen aufgegriffen.</td><td>Kategorie, Zimmerinventar, Bilder, Leistungen und Beschreibung regelmäßig mit der Website abgleichen.</td></tr>
+      <tr><td><strong>Südtirol.info</strong></td><td><span class="pill good">relevant</span></td><td>Wichtige regionale Primärquelle für Standort, Unterkunftsart und touristische Einordnung.</td><td>Hotelprofil, Ausstattung und Angebotsbeschreibung konsistent mit Website und Direktvertrieb halten.</td></tr>
+      <tr><td><strong>Google Travel</strong></td><td><span class="pill mid">mehrere Quellen</span></td><td>Aggregiert Hotel- und Angebotsdaten aus verschiedenen Feeds und Plattformen.</td><td>Abweichungen bei Kategorie, Zimmern, Leistungen und Bildern regelmäßig kontrollieren.</td></tr>
+      <tr><td><strong>Expedia / Hotels.com</strong></td><td><span class="pill mid">relevant</span></td><td>Externe Vertriebs- und Datenquellen mit Einfluss auf die öffentliche Hotelwahrnehmung.</td><td>Produkt- und Stammdaten mit den Primärquellen synchron halten.</td></tr>
+      <tr><td><strong>Google Business Profile</strong></td><td><span class="pill high">hohe Priorität</span></td><td>Zentrale Quelle für lokale Auffindbarkeit, Maps, Bewertungen und direkte Kontaktaktionen.</td><td>Primärkategorie, NAP, Website, Fotos, Ausstattung und Hotelbeschreibung laufend pflegen.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Local-SEO-Risiko: uneinheitliche Hotelinformationen</h3>
+  <div class="two-col">
+    <div class="panel"><h3>Uneinheitliche Daten</h3><p>Wenn Website, Google, Destinationen und OTAs unterschiedliche Angaben zu Kategorie, Zimmern, Ausstattung oder Leistungen führen, entstehen widersprüchliche Signale für Gäste und Suchsysteme.</p></div>
+    <div class="panel"><h3>Konsistente Datenführung</h3><p>Hotel Montis sollte zentrale Stammdaten und Leistungsinformationen über Website, strukturierte Daten, Google-Profil, OTAs, Destinationen und Buchungsfeeds konsistent halten und Änderungen zeitgleich ausrollen.</p></div>
+  </div>
+
+  <div class="takeaway"><h3>Was wir daraus mitnehmen</h3><ul><li>Local SEO ist für Hotel Montis vor allem eine Frage der <strong>Datenkonsistenz über mehrere Plattformen</strong>.</li><li>Neben Name und Adresse sollten auch <strong>Hotelkategorie, Zimmerinventar, Wellnessausstattung, Restaurant, Check-in, Bilder und Markenbeschreibung</strong> konsistent geführt werden.</li><li>Google Business Profile, Destination und große OTAs sollten als priorisierte Primär- bzw. Vertriebsquellen regelmäßig gegengeprüft werden.</li></ul></div>
+</section>
+
+<section class="section" id="empfehlung">
+  <div class="section-head"><div class="sec-num">05</div><h2>Empfehlung &amp; nächste Schritte</h2></div>
+  <p class="lead">Die Analyse zeigt eine solide organische Ausgangsbasis, gleichzeitig aber klares Potenzial bei generischer Hotel-Sichtbarkeit, technischer OnPage-Qualität und insbesondere der mobilen Performance. Für Hotel Montis sollte daraus ein priorisierter SEO- und Technik-Fahrplan für Deutschland und Italien abgeleitet werden.</p>
+
+  <h3>Unsere Empfehlung</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Maßnahme</th><th>Wo</th><th>Warum</th><th>Priorität</th><th>Aufwand</th></tr></thead>
+    <tbody>
+      <tr><td><strong>SEO-Informationsarchitektur DE/IT</strong></td><td>gesamte Domain</td><td>Hotel-, Wellness-, Aktiv- und Genuss-Suchintentionen systematisch abdecken.</td><td><span class="pill high">kritisch</span></td><td>hoch</td></tr>
+      <tr><td><strong>Title- und H1-Templates bereinigen</strong></td><td>Detailseiten / neue Zimmer &amp; Suiten</td><td>Duplikate beseitigen, Seitenthema eindeutig machen.</td><td><span class="pill high">hoch</span></td><td>gering</td></tr>
+      <tr><td><strong>Historische / falsche Inhalte korrigieren</strong></td><td>Mountain, Wandern, Feeds</td><td>Etage, Saisonheading und Gästekarte konsistent halten.</td><td><span class="pill high">hoch</span></td><td>gering</td></tr>
+      <tr><td><strong>DE-/IT-Keyword- und URL-Mapping</strong></td><td>Informationsarchitektur</td><td>Wellness, Pool, 4*S, Genuss, Aktiv, Zimmer &amp; Suiten als neue Suchintentionen abdecken.</td><td><span class="pill high">hoch</span></td><td>mittel</td></tr>
+      <tr><td><strong>Vollcrawl &amp; technischer QA-Check</strong></td><td>Staging + Live</td><td>Statuscodes, Redirects, Canonicals, hreflang, XML-Sitemap, Schema, Alt-Texte vollständig prüfen.</td><td><span class="pill high">hoch</span></td><td>mittel</td></tr>
+      <tr><td><strong>PageSpeed-/CWV-Optimierung</strong></td><td>Startseite + zentrale Templates</td><td>Mobile LCP-, JS- und Rendering-Probleme gezielt reduzieren.</td><td><span class="pill high">hoch</span></td><td>mittel</td></tr>
+      <tr><td><strong>Local-/OTA-Datenkonsistenz</strong></td><td>Google, Booking, Südtirol.info, Feeds</td><td>Kategorie, Leistungen und Hotelstammdaten über alle wichtigen Plattformen konsistent halten.</td><td><span class="pill high">kritisch</span></td><td>mittel</td></tr>
+      <tr><td><strong>Strukturierte Daten neu aufsetzen</strong></td><td>Hotel, Zimmer, Breadcrumbs, ggf. FAQ/Offers</td><td>Maschinenlesbare Hotelfakten mit sichtbarem Content synchronisieren.</td><td><span class="pill mid">mittel</span></td><td>mittel</td></tr>
+      <tr><td><strong>Monatliches SEO-Monitoring</strong></td><td>Ubersuggest + Search Console</td><td>Sichtbarkeit DE/IT, CTR, Rankings, Top-Landingpages und Core Web Vitals laufend überwachen.</td><td><span class="pill mid">mittel</span></td><td>laufend</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Die nächsten Schritte</h3>
+  <div class="roadmap">
+    <div class="step"><time>Woche 1–2 · Quick Wins</time><div><h3>OnPage-Basis bereinigen</h3><p>Duplicate Titles, H1-Templates, Saisonheading, Guest-Pass-Naming und zentrale Stammdaten korrigieren. Parallel die Hotel-Montis-Seitenstruktur und das Keyword-/URL-Mapping für DE und IT schärfen.</p><div class="taskline"><span class="task">Title/H1</span><span class="task">Datenkonsistenz</span><span class="task">Keyword-Mapping</span><span class="task">Interne Links</span></div></div></div>
+    <div class="step"><time>Monat 1–2 · Technische QA</time><div><h3>Technik und Performance absichern</h3><p>Vollcrawl, hreflang/Canonical/Schema, XML-Sitemap, interne Links und PageSpeed auf den wichtigsten Templates prüfen. Kritische Fehler und mobile Performance-Bremsen priorisiert schließen.</p><div class="taskline"><span class="task">OnPage Crawl</span><span class="task">PageSpeed</span><span class="task">Schema</span><span class="task">hreflang</span></div></div></div>
+    <div class="step"><time>Monat 1–2 · Local SEO</time><div><h3>Hotel Montis über alle Plattformen konsistent führen</h3><p>Google, OTAs, Südtirol.info, Buchungsfeeds und relevante Profile auf einheitliche Hotelstammdaten, Kategorie, Leistungen, Bilder und Beschreibungen abstimmen.</p><div class="taskline"><span class="task">Google</span><span class="task">Booking</span><span class="task">Südtirol.info</span><span class="task">OTAs</span></div></div></div>
+    <div class="step"><time>Monat 2–6 · Sichtbarkeit</time><div><h3>DE- und IT-Themencluster ausbauen</h3><p>Bestehende Autorität nutzen und neue Hotel-Suchintentionen für Wellness, Pool, Genuss, Aktiv und 4*S aufbauen. Interne Verlinkung und Conversionpfade pro Markt optimieren.</p><div class="taskline"><span class="task">DE Content</span><span class="task">IT Content</span><span class="task">Wellness</span><span class="task">Genuss</span><span class="task">Aktiv</span></div></div></div>
+    <div class="step"><time>Laufend · Reporting</time><div><h3>Sichtbarkeit und Performance messbar steuern</h3><p>Organische Sichtbarkeit, Top-Keywords, Landingpages, Direktbuchungs-Conversions, lokale Profile und Core Web Vitals monatlich beobachten und Abweichungen priorisiert bearbeiten.</p><div class="taskline"><span class="task">Search Console</span><span class="task">Rankings DE/IT</span><span class="task">CWV</span><span class="task">Local</span><span class="task">Conversion</span></div></div></div>
+  </div>
+
+  <div class="sources">
+    <h3>Quellen &amp; Prüfgrundlage</h3>
+    <ol>
+      <li>Website des Hotel Montis – technische und inhaltliche Prüfung, Abruf 30.09.2026.</li>
+      <li>Ubersuggest – Domain Overview, Backlinks Overview, organische Keyworddaten für Deutschland und Italien sowie PageSpeed Audit (Datenstand 30.09.2026).</li>
+      <li>Google Web Vitals – aktuelle Metriken und Schwellen: <a href="https://web.dev/articles/vitals">https://web.dev/articles/vitals</a>.</li>
+      <li>Öffentlich zugängliche Hotel- und Destinationsprofile, u. a. Booking.com, Südtirol.info und Google Travel, geprüft im September 2026.</li>
+      <li>Mitbewerber – offizielle Websites: tratterhof.com, sonnenberg.it, panoramahotel-huberhof.com, hotel-milla-montis.com, ambet.it, hotel-masl.com.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="footer">
+  <div><div class="brand">WESEO<span></span></div><h2>next<br>step.</h2></div>
+  <div><h3>Hotel Montis</h3><p>Website &amp; Local-SEO Erstanalyse<br>September 2026</p><p><a href="mailto:office@weseo.at">office@weseo.at</a><br>0800 400 877</p><div class="disclaimer">Datenstand: 30.09.2026. Die Analyse basiert auf Ubersuggest-Messungen, öffentlich zugänglichen Website-Daten sowie öffentlich auffindbaren Plattform- und Wettbewerbsinformationen. SEO- und Performance-Kennzahlen sind Momentaufnahmen und können sich im Zeitverlauf verändern.</div></div>
+</footer>
+</main>
+<script>
+const issues=document.querySelectorAll('.issue');
+issues.forEach(i=>i.querySelector('button').addEventListener('click',()=>i.classList.toggle('open')));
+const navLinks=[...document.querySelectorAll('.nav a')];
+const sections=[...document.querySelectorAll('section[id]')];
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-35% 0px -55% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
